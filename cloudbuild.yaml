@@ -1,2 +1,3 @@
+steps:
 - name: 'postgres'
   env: ['POSTGRES_PASSWORD=test1234']
