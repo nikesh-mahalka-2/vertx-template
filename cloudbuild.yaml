@@ -3,7 +3,8 @@ steps:
   env: ['POSTGRES_PASSWORD=postgres']
   entrypoint: 'bash'
   #args: ['bash', 'workspace/postgres.sh']
-  args: ['-x', '/docker-entrypoint.sh; chmod 755 ./postgres.sh; ./postgres.sh' ]
+  #args: ['-c', '/docker-entrypoint.sh; chmod 755 ./postgres.sh; ./postgres.sh' ]
+  args: ['-x', '/docker-entrypoint.sh' ]
   id: A
   waitFor: ['-']
   
