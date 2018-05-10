@@ -196,10 +196,6 @@
     </profile>
 
     <profile>
-      <id>postgresql</id>
-    </profile>
-
-    <profile>
       <id>release</id>
       <build>
         <plugins>
