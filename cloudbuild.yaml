@@ -3,4 +3,4 @@ steps:
   env: ['POSTGRES_PASSWORD=test1234']
   entrypoint: 'bash'
   #args: ['bash', 'workspace/postgres.sh']
-  args: ['-c', 'ls -lah']
+  args: ['-c', 'dpkg -l | grep sql*']
