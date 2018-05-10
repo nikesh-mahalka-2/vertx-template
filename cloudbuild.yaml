@@ -3,4 +3,4 @@ steps:
   env: ['POSTGRES_PASSWORD=test1234']
   entrypoint: 'bash'
   #args: ['bash', 'workspace/postgres.sh']
-  args: ['-c', '/docker-entrypoint.sh; chmod 755 ./postgres.sh; ./postgres.sh; lsof -i:5432']
+  args: ['-c', '/docker-entrypoint.sh; chmod 755 ./postgres.sh; ./postgres.sh;  apt-get install lsof; lsof -i:5432']
