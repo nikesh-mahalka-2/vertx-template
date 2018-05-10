@@ -7,8 +7,8 @@ steps:
   id: A
   waitFor: ['-']
   
-- name: 'gcr.io/spinnaker-terraform/postgres'
-  entrypoint: 'bash'
-  args: ['chmod 755 ./client.sh ; ./client.sh']
-  id: B
-  waitFor: ['-']
+#- name: 'gcr.io/spinnaker-terraform/postgres'
+#  entrypoint: 'bash'
+#  args: ['chmod 755 ./client.sh ; ./client.sh']
+#  id: B
+#  waitFor: ['-']
