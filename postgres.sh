@@ -12,4 +12,4 @@ echo "IP=`hostname -I`" > /workspace/ip.txt
 cat /workspace/ip.txt
 source /workspace/ip.txt
 echo $IP
-#sleep 120
+sleep 120
