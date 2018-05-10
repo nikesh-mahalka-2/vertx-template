@@ -1,5 +1,5 @@
 #!/bin/bash
-sleep 20
+sleep 90
 source /workspace/ip.txt
 echo $IP
 
