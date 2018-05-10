@@ -8,8 +8,8 @@ steps:
   id: A
   waitFor: ['-']
   
-#- name: 'postgres'
- # entrypoint: 'bash'
- # args: ['-c', 'chmod 755 ./client.sh; ./client.sh']
- # id: B
- # waitFor: ['-']
+- name: 'postgres'
+  entrypoint: 'bash'
+  args: ['-c', 'chmod 755 ./client.sh; ./client.sh']
+  id: B
+  waitFor: ['-']
