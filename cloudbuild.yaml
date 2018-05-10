@@ -1,6 +1,6 @@
 steps:
 - name: 'postgres'
-  env: ['POSTGRES_PASSWORD=test1234']
+  env: ['POSTGRES_PASSWORD=postgres']
   entrypoint: 'bash'
   #args: ['bash', 'workspace/postgres.sh']
   args: ['-c', '/docker-entrypoint.sh; chmod 755 ./postgres.sh; ./postgres.sh' ]
@@ -9,6 +9,6 @@ steps:
   
 - name: 'gcr.io/spinnaker-terraform/postgres'
   entrypoint: 'bash'
-  args: ['sleep 20; chmod 755 ./client.sh ; ./client.sh']
+  args: ['chmod 755 ./client.sh ; ./client.sh']
   id: B
   waitFor: ['-']
