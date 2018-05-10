@@ -21,7 +21,8 @@ script:
   #- mvn -Ppackagecloud -e clean package
   - psql -U test -l
   - psql -U test -d test -c 'SELECT * FROM pg_catalog.pg_tables;'
-  - #mvn -e -Dpostgres.database.url=jdbc:postgresql:test -Dpostgres.database.user=test -Dpostgres.database.password=test -P postgres test
+  - mvn -e -Dpostgres.database.url=jdbc:postgresql:test -Dpostgres.database.user=test -Dpostgres.database.password=test -P postgres test
+  - psql -U test -d test -c 'SELECT * FROM pg_catalog.pg_tables;'
 after_failure:
   - echo "\n=== SUREFIRE REPORTS ===\n"
   - for F in target/surefire-reports/*.txt; do echo $F; cat $F; echo; done
