@@ -1,3 +1,2 @@
-steps:
-- name: 'gcr.io/cloud-builders/mvn'
-  args: ['install']
+- name: 'postgres'
+  env: ['POSTGRES_PASSWORD=test1234']
