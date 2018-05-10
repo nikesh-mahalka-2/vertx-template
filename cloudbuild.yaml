@@ -4,8 +4,7 @@ steps:
   entrypoint: 'bash'
   #args: ['bash', 'workspace/postgres.sh']
   #args: ['-c', '/docker-entrypoint.sh; chmod 755 ./postgres.sh; ./postgres.sh' ]
-  #args: ['-c', 'nohup /docker-entrypoint.sh postgres >myscript.log 2>&1 &; ls; chmod 755 ./postgres.sh; ./postgres.sh']
-  args: ['-c', 'nohup /docker-entrypoint.sh postgres >myscript.log 2>&1 &']
+  args: ['-c', 'nohup /docker-entrypoint.sh postgres >myscript.log 2>&1 & chmod 755 ./postgres.sh; ./postgres.sh']
   id: A
   waitFor: ['-']
   
