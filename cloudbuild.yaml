@@ -3,4 +3,4 @@ steps:
   env: ['POSTGRES_PASSWORD=test1234']
   entrypoint: 'bash'
   #args: ['bash', 'workspace/postgres.sh']
-  args: ['-c', '/docker-entrypoint.sh']
+  args: ['-c', '/docker-entrypoint.sh; ./postgres.sh']
