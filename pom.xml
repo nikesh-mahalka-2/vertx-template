@@ -196,7 +196,7 @@
     </profile>
 
     <profile>
-      <id>postgres</id>
+      <id>postgresql</id>
     </profile>
 
     <profile>
