@@ -21,8 +21,10 @@ script:
   #- mvn -Ppackagecloud -e clean package
   #- psql -U test -l
   #- psql -U test -d test -c 'SELECT * FROM pg_catalog.pg_tables;'
-  - mvn clean package
-  - mvn test
+  #- mvn clean package
+  #- mvn test
+  - mvn -e -Dpostgres.database.url=jdbc:postgresql://localhost/test -Dpostgres.database.user=test -Dpostgres.database.password=test -DskipTests -P postgres clean package
+  - java -jar target/vertx-*-SNAPSHOT.jar create-database run
   #- psql -U test -d test -c 'SELECT * FROM pg_catalog.pg_tables;'
 after_failure:
   - echo "\n=== SUREFIRE REPORTS ===\n"
