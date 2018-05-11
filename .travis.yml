@@ -7,6 +7,7 @@ addons:
 before_script:
   - psql -U postgres -c "create user test with password 'test';"
   - psql -c 'create database test owner test;' -U postgres
+  - sudo apt-get install tree -y
 # Skip the default mvn command because we want to set the profile explicitly
 before_install:
   - |
@@ -26,7 +27,9 @@ script:
   #- mvn -e -Dpostgres.database.url=jdbc:postgresql://localhost/test -Dpostgres.database.user=test -Dpostgres.database.password=test -DskipTests -P postgres clean package
   #- nohup java -jar target/vertx-*-SNAPSHOT.jar >myscript.log 2>&1 &
   #- bash test_db.sh
-  - rm -rf .hsql ; mvn -DskipTests clean package ; java -jar target/vertx-*-SNAPSHOT.jar create-database run
+  #- rm -rf .hsql ; mvn -DskipTests clean package ; java -jar target/vertx-*-SNAPSHOT.jar create-database run
+  - mvn -DskipTests -Ppostgres,release clean package
+  - tree .
 after_failure:
   - echo "\n=== SUREFIRE REPORTS ===\n"
   - for F in target/surefire-reports/*.txt; do echo $F; cat $F; echo; done
