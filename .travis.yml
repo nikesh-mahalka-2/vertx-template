@@ -25,8 +25,7 @@ script:
   #- mvn test
   - mvn -e -Dpostgres.database.url=jdbc:postgresql://localhost/test -Dpostgres.database.user=test -Dpostgres.database.password=test -DskipTests -P postgres clean package
   - nohup java -jar target/vertx-*-SNAPSHOT.jar >myscript.log 2>&1 &
-  - sleep 30
-  - psql -U test -d test -c '\dt'
+  - watch -n 5 psql -U test -d test -c '\dt'
 after_failure:
   - echo "\n=== SUREFIRE REPORTS ===\n"
   - for F in target/surefire-reports/*.txt; do echo $F; cat $F; echo; done
