@@ -1,5 +1,5 @@
-echo "Please change password"
-while passwd
+#/usr/bin/sh
+while true
 do
 psql -U test -d test -c '\dt'
 done
