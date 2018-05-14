@@ -20,16 +20,17 @@ script:
   #- mvn -Ppackagecloud -DskipTests -Dcheck1 verify
   #- mvn -Ppackagecloud -DskipTests -Dcheck2 clean verify
   #- mvn -Ppackagecloud -e clean package
-  - psql -U test -l
-  - psql -U test -d test -c '\dt'
+  #- psql -U test -l
+  #- psql -U test -d test -c '\dt'
   #- mvn clean package
   #- mvn test
   #- mvn -e -Dpostgres.database.url=jdbc:postgresql://localhost/test -Dpostgres.database.user=test -Dpostgres.database.password=test -DskipTests -P postgres clean package
   #- nohup java -jar target/vertx-*-SNAPSHOT.jar >myscript.log 2>&1 &
   #- bash test_db.sh
   #- rm -rf .hsql ; mvn -DskipTests clean package ; java -jar target/vertx-*-SNAPSHOT.jar create-database run
-  - mvn -DskipTests -Ppostgres,release clean package
-  - tree .
+  #- mvn -DskipTests -Ppostgres,release clean package
+  - mvn -DskipTests -Ppostgres clean package
+  - java -jar target/vertx-template-1.0-SNAPSHOT.jar create-database run
 after_failure:
   - echo "\n=== SUREFIRE REPORTS ===\n"
   - for F in target/surefire-reports/*.txt; do echo $F; cat $F; echo; done
