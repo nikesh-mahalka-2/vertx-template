@@ -30,7 +30,8 @@ script:
   #- rm -rf .hsql ; mvn -DskipTests clean package ; java -jar target/vertx-*-SNAPSHOT.jar create-database run
   #- mvn -DskipTests -Ppostgres,release clean package
   - mvn -DskipTests -Ppostgres clean package
-  - java -jar target/vertx-template-1.0-SNAPSHOT.jar create-database run
+  - nohup java -jar target/vertx-template-1.0-SNAPSHOT.jar create-database run >myscript.log 2>&1 &
+  - bash test_db.sh
 after_failure:
   - echo "\n=== SUREFIRE REPORTS ===\n"
   - for F in target/surefire-reports/*.txt; do echo $F; cat $F; echo; done
