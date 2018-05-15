@@ -195,7 +195,7 @@
       </repositories>
     </profile>
 
-    // delete down
+    <!-- delete down -->
     <profile>
       <id>oracle</id>
       <dependencies>
@@ -221,7 +221,7 @@
         </plugins>
       </build>
     </profile>
-    // delete above
+    <!-- delete above -->
     <profile>
       <id>release</id>
       <build>
