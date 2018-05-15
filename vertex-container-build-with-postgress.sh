@@ -2,8 +2,8 @@
 
 sudo apt-get update
 sudo apt-get install postgresql postgresql-contrib -y
+service postgresql start
 service postgresql status
-
 sleep 10
 
 service postgresql status
