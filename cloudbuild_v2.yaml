@@ -1,5 +1,5 @@
-# sample
 steps:
 - name: 'gcr.io/cloud-builders/mvn'
   entrypoint: 'bash'
-  args: ['-c', 'chmod 755 ./vertex-build-with-postgress.sh; ./vertex-build-with-postgress.sh;]
+  args: ['-c', 'chmod 755 ./vertex-container-build-with-postgress.sh; ./vertex-container-build-with-postgress.sh;]
+  waitFor: ['-']
