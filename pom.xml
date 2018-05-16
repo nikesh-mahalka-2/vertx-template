@@ -29,13 +29,6 @@
       <artifactId>vertx-base</artifactId>
       <version>1.1-SNAPSHOT</version>
     </dependency>
-    <dependency>
-      <groupId>com.oracle.jdbc</groupId>
-      <artifactId>ojdbc7</artifactId>
-      <version>12.1.0.2</version>
-      <scope>system</scope>
-      <systemPath>/root/.m2/repository/com/oracle/jdbc/ojdbc7/12.1.0.2/ojdbc7-12.1.0.2.jar</systemPath>
-    </dependency>
     <!-- There are three profiles ("hsql" the default, "postgres", and "oracle")
          that are normally used to control which database drivers get embedded
          in our executable jar. If you want to always include a particular set,
@@ -200,6 +193,30 @@
           </snapshots>
         </repository>
       </repositories>
+    </profile>
+    <profile>
+      <id>oracle</id>
+      <dependency>
+        <groupId>com.oracle.jdbc</groupId>
+        <artifactId>ojdbc7</artifactId>
+        <version>12.1.0.2</version>
+        <scope>system</scope>
+        <systemPath>/root/.m2/repository/com/oracle/jdbc/ojdbc7/12.1.0.2/ojdbc7-12.1.0.2.jar</systemPath>
+      </dependency>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <configuration>
+              <includes>
+                <include>**/*DaoTest</include>
+                <include>**/*DbTest</include>
+                <include>**/*OracleTest</include>
+              </includes>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
     </profile>
     <profile>
       <id>release</id>
