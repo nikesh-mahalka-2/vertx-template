@@ -3,7 +3,7 @@
   <server>
     <id>maven.oracle.com </id>
     <username>nike.niec@gmail.com</username>
-    <password>{8qdhod2vYX4H9/F5WLsu4azw8dWzOTxE0slqvj3UqQI=}</password>
+    <password>{EFH1OO5dZRcHhX/ZQEpw+X4/zeq2HnXuwkmjALTSbiM=}</password>
   <configuration>
     <basicAuthScope>
       <host>ANY </host>
