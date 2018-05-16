@@ -78,13 +78,12 @@ public class Main {
     PortInfo listen = PortInfo.parseUrl(config.getString("listen.url", "http://0.0.0.0:8080"));
     String context = '/' + config.getString("app.context", "home");
 
-    // enableSecurityManager();
+    enableSecurityManager();
 
     // Create the database schema if requested or we are running hsql the first time
     Set<String> argSet = new HashSet<>(Arrays.asList(args));
     if (argSet.contains("create-database") || (devMode && !Files.exists(Paths.get(".hsql"))
         && "jdbc:hsqldb:file:.hsql/db;shutdown=true".equals(config.getString("database.url")))) {
-        //&& "jdbc:postgresql://127.0.0.1:5432/test".equals(config.getString("database.url")))) {
       CreateSchema.run(argSet, config);
       if (argSet.size() == 1 && argSet.contains("create-database")) {
         log.info("Only the create-database argument was provided, so exiting without starting the server");
