@@ -78,7 +78,7 @@ public class Main {
     PortInfo listen = PortInfo.parseUrl(config.getString("listen.url", "http://0.0.0.0:8080"));
     String context = '/' + config.getString("app.context", "home");
 
-    enableSecurityManager();
+    //enableSecurityManager();
 
     // Create the database schema if requested or we are running hsql the first time
     Set<String> argSet = new HashSet<>(Arrays.asList(args));
