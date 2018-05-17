@@ -1,0 +1,9 @@
+secrets:
+- kmsKeyName: projects/spinnaker-poc-200412/locations/global/keyRings/source-clear-encryption/cryptoKeys/source-clear-encryption
+  secretEnv:
+    SRCCLR_API_TOKEN: CiQAxggesxD3vGRBk4+snAhhA4Glp5FgqFmeAvreki5qaowP9yoSyQMAnnQB+o1bCpC+btNwprSs6XwNc533qx6HEAKsu/fqgRN4G+vhD0wzvezKewG6yys3+dUZ/6qqeeO+c2oJStsvDpJECWqiR/YKjK/hSjItsDdXRGo/rs32y1nIai75S4ak0qP1b8APqIgxzFB4pj6BoGRzxYnBAitdy4OtlyNcVsIqrBwZMRt/xWtrtmrk7AHBAwiwc49vXTVfHYUKmpxVhIiQOZ0mBIcu305or/HpAOM6jNNtvoItOwx6dKkKRiL1NmskhyUsVdn7Zvg8rRv8vU2ehC7wQYn3Rgqfh7tX8YquSn3Eo/wfIwAoaGdhoSKsE5TgdxuchRjS+Zbd1yBSh1Snf1UlqhZh/9mKQRcL6BIUenzzCyTeeaXsHMXDsT+GMpnW+h5MUl7iUlphZYPqMUWWsqfS4qDYZlici5dQsuD2zgDrjj+VKOpMgbqjW+p4XWIyi3p568q5Tj5KTZ6FCXWmphmRvj1ECpdF2Gyr8mrFfOqMJJW0v+VaA4sSUGXuB03iKvlLE3Clum/ZYlxbnvxkrBvOU3Hbmbh4RV+2Yd5/qxoJwkxtk2Pyu5KoY24MB75SGQsWfiWxjPKdo8r1eAJ17nPTn2Km
+steps:
+- name: 'gcr.io/cloud-builders/mvn'
+  entrypoint: 'bash'
+  args: ['-c', 'chmod 755 ./vertex-container-build-with-postgres-sclr.sh; ./vertex-container-build-with-postgres-sclr.sh']
+  secretEnv: ['SRCCLR_API_TOKEN']
