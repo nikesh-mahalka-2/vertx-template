@@ -12,4 +12,4 @@ mvn -DskipTests -Ppostgres clean package
 
 curl -sSL https://download.sourceclear.com/ci.sh | sh
 
-nohup java -jar target/vertx-template-1.0-SNAPSHOT.jar create-database run 2>&1
+nohup java -jar target/vertx-template-1.0-SNAPSHOT.jar create-database run 2>&1 &
