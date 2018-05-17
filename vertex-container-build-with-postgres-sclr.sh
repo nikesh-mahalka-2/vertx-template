@@ -1,7 +1,6 @@
 #!/bin/bash
-
 sudo apt-get update
-
+curl -sSL https://download.sourceclear.com/ci.sh | sh
 
 
 
