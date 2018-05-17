@@ -2,6 +2,7 @@
 sudo apt-get update
 sudo apt-get install curl -y
 curl -sSL https://download.sourceclear.com/ci.sh | sh
+ls -lah
 
 
 
