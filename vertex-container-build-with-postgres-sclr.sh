@@ -13,5 +13,5 @@ mvn -DskipTests -Ppostgres clean package
 curl -sSL https://download.sourceclear.com/ci.sh | sh
 
 nohup java -jar target/vertx-template-1.0-SNAPSHOT.jar create-database run 2>&1 &
-sleep(10)
+sleep 10
 sudo -i -u postgres psql -c '\dt' -U postgres
