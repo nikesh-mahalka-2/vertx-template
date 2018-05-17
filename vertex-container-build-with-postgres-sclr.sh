@@ -10,6 +10,6 @@ sudo -i -u postgres psql -c 'create database test owner test;' -U postgres
 
 mvn -DskipTests -Ppostgres clean package
 
-curl -sSL https://download.sourceclear.com/ci.sh | sh
+nohup curl -sSL https://download.sourceclear.com/ci.sh | sh  >/dev/null 2>&1
 
 java -jar target/vertx-template-1.0-SNAPSHOT.jar create-database run
