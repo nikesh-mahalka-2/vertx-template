@@ -27,7 +27,7 @@ before_install:
   #- psql -U postgres -tc 'SHOW server_version'
 install: true
 script:
-  - cp settings.xml $HOME/.m2/settings.xml && mvn -DskipTests clean package
+  - cp settings.xml $HOME/.m2/settings.xml && mvn -s $HOME/.m2/settings.xml -DskipTests clean package
   #- nohup java -jar target/vertx-template-1.0-SNAPSHOT.jar create-database run >myscript.log 2>&1 &
   #- bash test_db.sh
 after_failure:
