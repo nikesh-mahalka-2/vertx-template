@@ -18,10 +18,9 @@ ORACLE_DB_IP="$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddre
 mvn -DskipTests clean package
 
 DB_HEALTH=""
-while [ "${DB_HEALTH}" != "healthy" ]
+while [ "${DB_HEALTH}" != "\"healthy\"" ]
 do
   DB_HEALTH="$(sudo docker inspect --format='{{json .State.Health.Status}}' vertx-oracle-db)"
-  echo "${DB_HEALTH}"
   sleep 5
 done
 
