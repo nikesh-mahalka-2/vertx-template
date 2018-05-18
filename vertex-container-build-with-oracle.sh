@@ -27,8 +27,11 @@ netstat -tunlp
 echo "print which docker"
 which docker
 which mvn
-ls dirname(`which docker`)
-ls dirname(`which mvn`)
+docker version
+
+ls /usr/bin
+ls dirname `which docker`
+ls dirname `which mvn`
 
 
 echo "print uname info"
