@@ -24,8 +24,8 @@ done
 echo "print database IP"
 echo $ORACLE_DB_IP
 
-echo "sleep for 5 seconds"
-sleep 5
+echo "sleep for 30 seconds"
+sleep 30
 
 echo java -Ddatabase.url=jdbc:oracle:thin:@"${ORACLE_DB_IP}":1521/ORCLCDB.localdomain -Djava.security.egd=file:/dev/./urandom -jar target/vertx-*-SNAPSHOT.jar create-database run
 
