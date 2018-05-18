@@ -14,4 +14,4 @@ echo "container IP"
 echo $ORACLE_DB_IP
 
 echo "printing network interface"
-ip a s
+ifconfig
