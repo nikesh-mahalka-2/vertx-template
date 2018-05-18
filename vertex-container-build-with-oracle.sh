@@ -15,8 +15,9 @@
 #sudo docker login -u nike1niec -p $DOCKER_LOGIN
 #sudo docker run -d -it --name vertx-oracle-db -P store/oracle/database-enterprise:12.2.0.1-slim
 docker run -d -it --name test-ubuntu ubuntu bash
-docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' test-ubuntu
-echo $myIP
+MY_IP="$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' test-ubuntu)"
+echo "${MY_IP}"
+
 #mvn -DskipTests clean package
 
 
