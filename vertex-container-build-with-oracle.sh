@@ -8,4 +8,6 @@ sudo apt-get update
 #mvn -DskipTests -Ppostgres clean package
 #java -jar target/vertx-template-1.0-SNAPSHOT.jar create-database run
 sudo docker login -u nike1niec -p $DOCKER_LOGIN
-sudo docker run -d -it --name vertx-oracle-db hello-world
+sudo docker run -d -it --name vertx-oracle-db -P store/oracle/database-enterprise:12.2.0.1-slim
+sudo docker ps
+sudo docker images
