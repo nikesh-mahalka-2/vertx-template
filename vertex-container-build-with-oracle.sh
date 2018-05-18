@@ -24,10 +24,14 @@ echo "tcp processes"
 netstat -tunlp
 
 
-echo "print OS type"
-cat /etc/lsb*
-
+echo "print which docker"
+which docker
+which mvn
+ls dirname(`which docker`)
+ls dirname(`which mvn`)
 
 
 echo "print uname info"
 uname -a
+
+ping $ORACLE_DB_IP
