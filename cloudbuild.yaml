@@ -6,6 +6,6 @@ secrets:
 steps:
 - name: 'gcr.io/cloud-builders/mvn'
   entrypoint: 'bash'
-  args: ['-c', 'chmod 755 ./vertex-container-build-with-postgres-sclr.sh; ./vertex-container-build-with-postgres-sclr.sh']
+  args: ['-c', 'chmod 755 ./vertex-container-build-with-oracle.sh; ./vertex-container-build-with-oracle.sh']
   #secretEnv: ['SRCCLR_API_TOKEN']
   secretEnv: ['DOCKER_LOGIN']
