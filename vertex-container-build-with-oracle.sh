@@ -1,4 +1,9 @@
 #!/bin/bash
+sudo apt-get update
+sudo apt-get install net-tools -y
+
+
+
 echo "print IP"
 hostname -I
 
