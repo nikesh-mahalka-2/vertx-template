@@ -15,3 +15,19 @@ echo $ORACLE_DB_IP
 
 echo "printing network interface"
 ifconfig
+
+echo "linux processes"
+ps aux
+
+
+echo "tcp processes"
+netstat -tunlp
+
+
+echo "print OS type"
+cat /etc/lsb*
+
+
+
+echo "print uname info"
+uname -a
