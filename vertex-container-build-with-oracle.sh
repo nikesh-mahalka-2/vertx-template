@@ -17,8 +17,13 @@ sudo docker run -d -it --name vertx-oracle-db -P store/oracle/database-enterpris
 ORACLE_DB_IP="$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' vertx-oracle-db)"
 mvn -DskipTests clean package
 
-sudo docker ps
-sleep 10
-sudo docker ps
+DB_HEALTH=""
+while [ "${DB_HEALTH}" != "healthy" ]
+do
+  DB_HEALTH="$(sudo docker inspect --format='{{json .State.Health.Status}}' vertx-oracle-db)"
+  echo "${DB_HEALTH}"
+  sleep 5
+done
 
-java -Ddatabase.url=jdbc:oracle:thin:@"${ORACLE_DB_IP}":1521/ORCLCDB.localdomain -Ddatabase.user="sys as sysdba" -Ddatabase.password=Oradoc_db1  -Dbase.driver=oracle.jdbc.driver.OracleDriver -Djava.security.egd=file:/dev/./urandom -jar target/vertx-*-SNAPSHOT.jar create-database run
+
+java -Ddatabase.url=jdbc:oracle:thin:@"${ORACLE_DB_IP}":1521/ORCLCDB.localdomain -Djava.security.egd=file:/dev/./urandom -jar target/vertx-*-SNAPSHOT.jar create-database run
