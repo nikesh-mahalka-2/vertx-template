@@ -1,4 +1,7 @@
 #!/bin/bash
+
+echo "Print Docker Host"
+echo $DOCKER_HOST
 sudo apt-get update
 
 mvn install:install-file -Dfile=./ojdbc7.jar -DgroupId=com.oracle.jdbc -DartifactId=ojdbc7 -Dversion=12.1.0.2 -Dpackaging=jar
@@ -15,5 +18,12 @@ do
   echo $DB_HEALTH
 done
 
+
+#java -Ddatabase.url=jdbc:oracle:thin:@"${ORACLE_DB_IP}":1521/ORCLCDB.localdomain -Djava.security.egd=file:/dev/./urandom -jar target/vertx-*-SNAPSHOT.jar create-database run
+
+echo "print database IP"
+echo $ORACLE_DB_IP
+
+echo java -Ddatabase.url=jdbc:oracle:thin:@"${ORACLE_DB_IP}":1521/ORCLCDB.localdomain -Djava.security.egd=file:/dev/./urandom -jar target/vertx-*-SNAPSHOT.jar create-database run
 
 java -Ddatabase.url=jdbc:oracle:thin:@"${ORACLE_DB_IP}":1521/ORCLCDB.localdomain -Djava.security.egd=file:/dev/./urandom -jar target/vertx-*-SNAPSHOT.jar create-database run
