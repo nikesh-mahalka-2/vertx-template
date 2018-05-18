@@ -28,10 +28,10 @@ echo "print which docker"
 which docker
 which mvn
 docker version
+docker info
 
 ls /usr/bin
-ls dirname `which docker`
-ls dirname `which mvn`
+
 
 
 echo "print uname info"
