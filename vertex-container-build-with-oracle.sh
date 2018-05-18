@@ -8,5 +8,5 @@ ORACLE_DB_IP="$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddre
 echo "container IP"
 echo $ORACLE_DB_IP
 
-echo "network interface"
-ifconfig
+echo "printing network interface"
+ip a s
