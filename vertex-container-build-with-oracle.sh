@@ -9,7 +9,7 @@ echo "print IP"
 hostname -I
 
 echo "creating docker container"
-sudo docker run -D -d -it --name vertx-oracle-db alpine
+sudo docker -D run -d -it --name vertx-oracle-db alpine
 ORACLE_DB_IP="$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' vertx-oracle-db)"
 
 echo "container IP"
