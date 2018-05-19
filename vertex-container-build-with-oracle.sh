@@ -20,5 +20,8 @@ echo $ORACLE_DB_IP
 echo "printing docker containers"
 sudo docker ps
 
+echo "ping.........."
+ping $ORACLE_DB_IP
+
 
 
