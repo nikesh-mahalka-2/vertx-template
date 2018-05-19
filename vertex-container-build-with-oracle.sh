@@ -16,25 +16,6 @@ echo $ORACLE_DB_IP
 echo "printing network interface"
 ifconfig
 
-echo "linux processes"
-ps aux
 
+docker network ls
 
-echo "tcp processes"
-netstat -tunlp
-
-
-echo "print which docker"
-which docker
-which mvn
-docker version
-docker info
-
-ls /usr/bin
-
-
-
-echo "print uname info"
-uname -a
-
-ping $ORACLE_DB_IP
