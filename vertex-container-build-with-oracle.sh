@@ -2,7 +2,7 @@
 sudo apt-get update
 sudo apt-get install net-tools -y
 
-
+docker network ls
 
 echo "print IP"
 hostname -I
