@@ -2,8 +2,8 @@
 sudo apt-get update
 sudo apt-get install net-tools -y
 
-echo "printing docker network network ls"
-docker network ls
+#echo "printing docker network network ls"
+#docker network ls
 
 echo "print IP"
 hostname -I
@@ -15,8 +15,10 @@ ORACLE_DB_IP="$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddre
 echo "container IP"
 echo $ORACLE_DB_IP
 
-echo "printing network interface"
-ifconfig
+#echo "printing network interface"
+#ifconfig
+echo "printing docker containers"
+sudo docker ps
 
 
 
