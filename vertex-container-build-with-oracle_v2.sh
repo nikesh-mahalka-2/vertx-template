@@ -1,14 +1,15 @@
 #!/bin/bash
 
-echo "Print Docker Host"
-echo $DOCKER_HOST
+#echo "Print Docker Host"
+#echo $DOCKER_HOST
 sudo apt-get update
+sudo apt-get install iputils-ping
 
-mvn install:install-file -Dfile=./ojdbc7.jar -DgroupId=com.oracle.jdbc -DartifactId=ojdbc7 -Dversion=12.1.0.2 -Dpackaging=jar
+#mvn install:install-file -Dfile=./ojdbc7.jar -DgroupId=com.oracle.jdbc -DartifactId=ojdbc7 -Dversion=12.1.0.2 -Dpackaging=jar
 sudo docker login -u nike1niec -p $DOCKER_LOGIN
 sudo docker run -d -it --name vertx-oracle-db -P store/oracle/database-enterprise:12.2.0.1-slim
 ORACLE_DB_IP="$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' vertx-oracle-db)"
-mvn -DskipTests clean package
+#mvn -DskipTests clean package
 
 DB_HEALTH=""
 while [ "${DB_HEALTH}" != "\"healthy\"" ]
@@ -24,9 +25,15 @@ done
 echo "print database IP"
 echo $ORACLE_DB_IP
 
-echo "sleep for 30 seconds"
-sleep 30
+ping $ORACLE_DB_IP
 
-echo java -Ddatabase.url=jdbc:oracle:thin:@"${ORACLE_DB_IP}":1521/ORCLCDB.localdomain -Djava.security.egd=file:/dev/./urandom -jar target/vertx-*-SNAPSHOT.jar create-database run
+ping vertx-oracle-db
 
-java -Ddatabase.url=jdbc:oracle:thin:@"${ORACLE_DB_IP}":1521/ORCLCDB.localdomain -Djava.security.egd=file:/dev/./urandom -jar target/vertx-*-SNAPSHOT.jar create-database run
+
+
+#echo "sleep for 30 seconds"
+#sleep 30
+
+#echo java -Ddatabase.url=jdbc:oracle:thin:@"${ORACLE_DB_IP}":1521/ORCLCDB.localdomain -Djava.security.egd=file:/dev/./urandom -jar target/vertx-*-SNAPSHOT.jar create-database run
+
+#java -Ddatabase.url=jdbc:oracle:thin:@"${ORACLE_DB_IP}":1521/ORCLCDB.localdomain -Djava.security.egd=file:/dev/./urandom -jar target/vertx-*-SNAPSHOT.jar create-database run
