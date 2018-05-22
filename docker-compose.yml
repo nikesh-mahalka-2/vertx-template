@@ -16,7 +16,7 @@ services:
     depends_on:
       - dbserver
     #command: ["./wait-for-it.sh", "dbserver:1521", "-t", "90", "--", "/usr/bin/java", " -Ddatabase.url=jdbc:oracle:thin:@vertx-template_dbserver_1:1521/ORCLCDB.localdomain -Djava.security.egd=file:/dev/./urandom -jar /target/vertx-*-SNAPSHOT.jar create-database run"]
-    command: ["./wait-for-oracle.sh", "dbserver", "/bin/sh", "-c", "java -Ddatabase.url=jdbc:oracle:thin:@dbserver:1521/ORCLCDB.localdomain -Djava.security.egd=file:/dev/./urandom -jar /target/vertx-*-SNAPSHOT.jar create-database run"]
+    command: ["./wait-for-oracle.sh", "dbserver", "/bin/sh", "-c", "java -Ddatabase.url=jdbc:oracle:thin:@workspace_dbserver_1:1521/ORCLCDB.localdomain -Djava.security.egd=file:/dev/./urandom -jar /target/vertx-*-SNAPSHOT.jar create-database run"]
 
     #healthcheck:
      # test: ["CMD", "./wait-for-it.sh", "-h", "dbserver", "-p", "1521"]
