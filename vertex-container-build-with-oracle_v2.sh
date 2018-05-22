@@ -3,7 +3,7 @@
 #echo "Print Docker Host"
 #echo $DOCKER_HOST
 sudo apt-get update
-sudo apt-get install iputils-ping
+sudo apt-get install iputils-ping -y
 
 #mvn install:install-file -Dfile=./ojdbc7.jar -DgroupId=com.oracle.jdbc -DartifactId=ojdbc7 -Dversion=12.1.0.2 -Dpackaging=jar
 sudo docker login -u nike1niec -p $DOCKER_LOGIN
