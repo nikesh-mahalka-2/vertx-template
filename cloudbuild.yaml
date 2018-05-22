@@ -8,6 +8,6 @@ steps:
   args: ['cp', 'gs://delete-oracle-jdbc-jar/ojdbc7.jar', 'ojdbc7.jar']
 - name: 'gcr.io/cloud-builders/mvn'
   entrypoint: 'bash'
-  args: ['-c', 'chmod 755 ./vertex-container-build-with-oracle.sh; ./vertex-container-build-with-oracle.sh']
+  args: ['-c', 'chmod 755 ./vertex-container-build-with-oracle_v2.sh; ./vertex-container-build-with-oracle_v2.sh']
   #secretEnv: ['SRCCLR_API_TOKEN']
   secretEnv: ['DOCKER_LOGIN']
