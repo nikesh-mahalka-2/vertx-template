@@ -6,8 +6,11 @@ secrets:
 steps:
 - name: gcr.io/cloud-builders/gsutil
   args: ['cp', 'gs://delete-oracle-jdbc-jar/ojdbc7.jar', 'ojdbc7.jar']
-- name: 'gcr.io/cloud-builders/mvn'
+- name: 'gcr.io/spinnaker-poc-200412/github-nikesh-mahalka-2-container-builder-docker-compose:latest'
   entrypoint: 'bash'
-  args: ['-c', 'chmod 755 ./vertex-container-build-with-oracle_v2.sh; ./vertex-container-build-with-oracle_v2.sh']
+  args: ['-c', 'chmod 755 ./vertex-container-build-with-oracle_v3.sh; ./vertex-container-build-with-oracle_v3.sh']
+#- name: 'gcr.io/cloud-builders/mvn'
+#  entrypoint: 'bash'
+#  args: ['-c', 'chmod 755 ./vertex-container-build-with-oracle_v2.sh; ./vertex-container-build-with-oracle_v2.sh']
   #secretEnv: ['SRCCLR_API_TOKEN']
-  secretEnv: ['DOCKER_LOGIN']
+#  secretEnv: ['DOCKER_LOGIN']
