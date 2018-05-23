@@ -9,4 +9,4 @@ services:
     entrypoint: |
     depends_on:
       - dbserver
-    command: ["/bin/bash", "-c", "apt-get update; apt-get install iputils-ping -y; ping dbserver -t"]
+    command: ["/bin/bash", "-c", "apt-get update; apt-get install iputils-ping -y; ping dbserver"]
