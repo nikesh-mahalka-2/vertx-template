@@ -1,4 +1,10 @@
+secrets:
+- kmsKeyName: projects/spinnaker-poc-200412/locations/global/keyRings/source-clear-encryption/cryptoKeys/source-clear-encryption
+  secretEnv:
+    #SRCCLR_API_TOKEN: CiQAxggesxD3vGRBk4+snAhhA4Glp5FgqFmeAvreki5qaowP9yoSyQMAnnQB+o1bCpC+btNwprSs6XwNc533qx6HEAKsu/fqgRN4G+vhD0wzvezKewG6yys3+dUZ/6qqeeO+c2oJStsvDpJECWqiR/YKjK/hSjItsDdXRGo/rs32y1nIai75S4ak0qP1b8APqIgxzFB4pj6BoGRzxYnBAitdy4OtlyNcVsIqrBwZMRt/xWtrtmrk7AHBAwiwc49vXTVfHYUKmpxVhIiQOZ0mBIcu305or/HpAOM6jNNtvoItOwx6dKkKRiL1NmskhyUsVdn7Zvg8rRv8vU2ehC7wQYn3Rgqfh7tX8YquSn3Eo/wfIwAoaGdhoSKsE5TgdxuchRjS+Zbd1yBSh1Snf1UlqhZh/9mKQRcL6BIUenzzCyTeeaXsHMXDsT+GMpnW+h5MUl7iUlphZYPqMUWWsqfS4qDYZlici5dQsuD2zgDrjj+VKOpMgbqjW+p4XWIyi3p568q5Tj5KTZ6FCXWmphmRvj1ECpdF2Gyr8mrFfOqMJJW0v+VaA4sSUGXuB03iKvlLE3Clum/ZYlxbnvxkrBvOU3Hbmbh4RV+2Yd5/qxoJwkxtk2Pyu5KoY24MB75SGQsWfiWxjPKdo8r1eAJ17nPTn2Km
+    DOCKER_LOGIN: CiQAxgges7DOxqkgtgOuOMALZgIaa9f1JiSno67g6Lol98O5nocSNACedAH6lqExDVBta0bn8WLD+XqAwhLapJxt4mMxzm6waV8t3js8eSV2PswjVb8DDNWWGxE=
 steps:
 - name: 'gcr.io/spinnaker-poc-200412/github-nikesh-mahalka-2-container-builder-docker-compose:latest'
   entrypoint: 'bash'
   args: ['-c', 'chmod 755 ./docker-compose-testing.sh; ./docker-compose-testing.sh']
+  secretEnv: ['DOCKER_LOGIN']
