@@ -13,4 +13,4 @@ services:
     depends_on:
       - dbserver
     #command: ["/bin/bash", "-c", "apt-get update; apt-get install iputils-ping -y; ping dbserver; ./wait-for-oracle.sh dbserver /bin/bash ls"]
-    command: ["/bin/bash", "-c", "apt-get update; apt-get install iputils-ping -y; ping dbserver; ls -lah /workspace"]
+    command: ["/bin/bash", "-c", "apt-get update; apt-get install iputils-ping -y; ping workspace_dbserver_1; ls -lah /workspace"]
