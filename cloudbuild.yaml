@@ -10,3 +10,4 @@ steps:
   entrypoint: 'bash'
   args: ['-c', 'chmod 755 ./docker-compose-testing.sh; ./docker-compose-testing.sh']
   secretEnv: ['DOCKER_LOGIN']
+  
