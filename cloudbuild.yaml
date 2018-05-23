@@ -1,0 +1,4 @@
+steps:
+- name: 'gcr.io/spinnaker-poc-200412/github-nikesh-mahalka-2-container-builder-docker-compose:latest'
+  entrypoint: 'bash'
+  args: ['-c', 'chmod 755 ./docker-compose-testing.sh; ./docker-compose-testing.sh']
