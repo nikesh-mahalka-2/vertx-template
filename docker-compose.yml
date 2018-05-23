@@ -1,18 +1,14 @@
 version: '3'
 services:
   dbserver:
-    image: store/oracle/database-enterprise:12.2.0.1-slim
+    image: library/ubuntu
     entrypoint: |
     command: ["/bin/bash", "-c", "sleep 120"]
-    ports:
-      - "1521:1521"
   appserver:
-    image: gcr.io/cloud-builders/mvn
+    image: library/ubuntu
     volumes:
       - /workspace:/workspace
-    #image: gcr.io/cloud-builders/mvn 
     entrypoint: |
     depends_on:
       - dbserver
-    #command: ["/bin/bash", "-c", "apt-get update; apt-get install iputils-ping -y; ping dbserver; ./wait-for-oracle.sh dbserver /bin/bash ls"]
-    command: ["/bin/bash", "-c", "apt-get update; apt-get install iputils-ping -y; cd /workspace; mvn install:install-file -Dfile=./ojdbc7.jar -DgroupId=com.oracle.jdbc -DartifactId=ojdbc7 -Dversion=12.1.0.2 -Dpackaging=jar; mvn -DskipTests clean package; sleep 120; java -Ddatabase.url=jdbc:oracle:thin:@workspace_dbserver_1:1521/ORCLCDB.localdomain -Djava.security.egd=file:/dev/./urandom -jar ./target/vertx-*-SNAPSHOT.jar create-database run"]
+    command: ["/bin/bash", "-c", "apt-get update; apt-get install iputils-ping -y; cd /workspace; ./wait-for-oracle.sh"]
