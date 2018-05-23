@@ -1,0 +1,14 @@
+version: '3'
+services:
+  dbserver:
+    image: library/ubuntu
+    entrypoint: |
+    command: ["/bin/bash", "-c", "sleep 120"]
+  appserver:
+    image: library/ubuntu
+    volumes:
+      - /workspace:/workspace
+    entrypoint: |
+    depends_on:
+      - dbserver
+    command: ["/bin/bash", "-c", "apt-get update; apt-get install iputils-ping -y; cd /workspace; ./wait-for-oracle.sh"]
