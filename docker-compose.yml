@@ -6,7 +6,9 @@ services:
       - "1521:1521"
   dbclient:
     image: store/oracle/database-instantclient:12.2.0.1
+    volumes:
+      - /workspace:/workspace
     entrypoint: |
     depends_on:
       - dbserver
-    command: ["/bin/bash", "-c", "./wait-for-oracle.sh"]
+    command: ["/bin/bash", "-c", "/workspace/wait-for-oracle.sh"]
