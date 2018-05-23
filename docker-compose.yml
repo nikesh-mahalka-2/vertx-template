@@ -7,14 +7,10 @@ services:
   appserver:
     image: library/ubuntu
     volumes:
-      - workspace:/workspace
+      - /workspace:/workspace
     #image: gcr.io/cloud-builders/mvn 
     entrypoint: |
     depends_on:
       - dbserver
     #command: ["/bin/bash", "-c", "apt-get update; apt-get install iputils-ping -y; ping dbserver; ./wait-for-oracle.sh dbserver /bin/bash ls"]
-    command: ["/bin/bash", "-c", "apt-get update; apt-get install iputils-ping -y; ping dbserver"]
-    
-volumes:
-  workspace:
-    external: true
+    command: ["/bin/bash", "-c", "apt-get update; apt-get install iputils-ping -y; ping dbserver; ls -lah"]
