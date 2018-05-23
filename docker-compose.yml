@@ -2,6 +2,8 @@ version: '3'
 services:
   dbserver:
     image: library/ubuntu
+    entrypoint: |
+    command: ["/bin/bash", "-c", "sleep 120"]
     #ports:
       #- "1521:1521"
   appserver:
