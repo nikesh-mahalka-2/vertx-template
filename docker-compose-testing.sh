@@ -15,3 +15,5 @@ done
 
 echo "running docker-compose up appserver"
 docker-compose up appserver
+
+docker-compose down
