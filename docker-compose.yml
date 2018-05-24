@@ -12,6 +12,6 @@ services:
     volumes:
       - /workspace:/workspace
     entrypoint: |
-      bash -c "cd /workspace; mvn install:install-file -Dfile=./ojdbc7.jar -DgroupId=com.oracle.jdbc -DartifactId=ojdbc7 -Dversion=12.1.0.2 -Dpackaging=jar; mvn -DskipTests clean package; java -Ddatabase.url=jdbc:oracle:thin:@dbserver.vertx-template_default:1521/ORCLCDB.localdomain -Djava.security.egd=file:/dev/./urandom -jar ./target/vertx-*-SNAPSHOT.jar create-database run"
+      bash -c "cd /workspace; mvn install:install-file -Dfile=./ojdbc7.jar -DgroupId=com.oracle.jdbc -DartifactId=ojdbc7 -Dversion=12.1.0.2 -Dpackaging=jar; mvn -DskipTests clean package; java -Ddatabase.url=jdbc:oracle:thin:@dbserver.workspace_default:1521/ORCLCDB.localdomain -Djava.security.egd=file:/dev/./urandom -jar ./target/vertx-*-SNAPSHOT.jar create-database run"
     depends_on:
       - dbserver
