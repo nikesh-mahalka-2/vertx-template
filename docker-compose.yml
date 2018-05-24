@@ -4,6 +4,8 @@ services:
   dbserver:
     image: store/oracle/database-enterprise:12.2.0.1-slim
     container_name: dbserver
+    volumes:
+      - /workspace:/workspace
     ports:
       - "1521:1521"
   appserver:
