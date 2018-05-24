@@ -1,4 +1,6 @@
 #!/bin/bash
+chmod +x /workspace/check_oracle_table.sh
+
 echo "docker login"
 docker login -u nike1niec -p $DOCKER_LOGIN
 
