@@ -18,7 +18,7 @@ do
 done
 
 echo "running docker-compose up appserver"
-docker-compose up -d appserver
+docker-compose up appserver
 
 sudo docker exec dbserver /workspace/check_oracle_table.sh
 
